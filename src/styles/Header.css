@@ -16,7 +16,7 @@ header {
   width: 200px;
 }
 
-.search-profile a {
+.search-profile > a {
   margin-left: 15px;
 }
 
@@ -57,22 +57,23 @@ header {
   background-color: rgb(230, 227, 216);
 }
 
-.search-radios button {
+.search-radios > button {
   background-color: rgb(104, 192, 16);
   border: none;
   color: white;
   cursor: pointer;
   height: 30px;
+  margin-top: 50px;
   transition: all 0.2s ease-in-out;
   width: 60px;
 }
 
-.search-radios button:hover {
+.search-radios > button:hover {
   background-color: rgb(117, 214, 21);
   scale: 1.1;
 }
 
-.search-radios button:active {
+.search-radios > button:active {
   background-color: rgb(117, 214, 21);
   box-shadow: 0 2px 4px black;
   scale: 0.9;
