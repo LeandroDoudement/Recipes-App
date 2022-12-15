@@ -25,7 +25,7 @@
   flex-direction: column;
   height: 300px;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
   width: 350px;
 }
 
@@ -74,8 +74,8 @@
 }
 
 .formLogin button:active {
-  box-shadow: 5px 5px 5px 5px white;
-  color: white;
+  box-shadow: 5px 5px 5px 5px black;
+  color: black;
   scale: 0.9;
 }
 
