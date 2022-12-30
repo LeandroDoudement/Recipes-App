@@ -61,7 +61,6 @@ export default function ProgressDetailsMeals() {
 
     const favoriteRecipes = localStorage.getItem('favoriteRecipes');
     const getFavoritesLocalStorage = favoriteRecipes ? JSON.parse(favoriteRecipes) : [];
-    console.log(getFavoritesLocalStorage);
 
     if (getFavoritesLocalStorage.length > 0) {
       const keysMeals = getFavoritesLocalStorage.filter(
@@ -170,7 +169,6 @@ export default function ProgressDetailsMeals() {
   return (
     <div className="recipe-details">
       <ReturnButton location={ location.pathname.slice(0, DOZE) } />
-      <h1>ProgressMeals</h1>
       {(dataProgress.length > 0) && (
         <div>
           {(!isLoading) && (
@@ -241,7 +239,7 @@ export default function ProgressDetailsMeals() {
           disabled={ !isDone }
           onClick={ saveRecipe }
         >
-          Recipe Finish
+          Finish Recipe
         </button>
       </Link>
     </div>

@@ -87,7 +87,6 @@ describe('Testes da page RecipeDetailsDrinks', () => {
       },
     ];
     localStorage.setItem('batata', JSON.stringify(favorites));
-    console.log('Oi, teste aqui', localStorage.getItem('batata'));
     const { history } = renderWithRouter(<RecipeDetailsDrink />);
     history.push(GGPage);
     const shareBtn = await screen.findByTestId('share-btn');
@@ -98,9 +97,6 @@ describe('Testes da page RecipeDetailsDrinks', () => {
       .then(() => expect(shareBtnText).not.toBeInTheDocument());
     const favoriteBtn = await screen.findByTestId('favorite-btn');
     userEvent.click(favoriteBtn);
-    // expect(favoriteBtn.src).toBe('/static/media/whiteHeartIcon.2b822118952dc5140129c6349fcd0472.svg');
-    // console.log('Teste:', localStorage.getItem('favoriteRecipes'));
-    // Não está funcionando, só pega []
   });
   it('Testa se tem inProgressRecipes', async () => {
     const { history } = renderWithRouter(<RecipeDetails />);

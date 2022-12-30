@@ -146,8 +146,5 @@ describe('Testes do componente searchBarDrinks', () => {
     userEvent.click(nameSearch);
     const executeSearchBtn = screen.getByTestId(exercSearchBtn);
     userEvent.click(executeSearchBtn);
-    // console.log(history.location.pathname);
-    // const drink = await screen.findByTestId('0-recipe-card');
-    // expect(drink).toBeInTheDocument();
   });
 });

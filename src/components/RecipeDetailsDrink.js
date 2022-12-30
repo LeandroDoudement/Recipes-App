@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useHistory, Link, useLocation } from 'react-router-dom';
 import fetchData from '../services/fetchRecipes';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
@@ -14,6 +17,7 @@ export default function RecipeDetailsDrink() {
   const [btnShare, setBtnShare] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const history = useHistory();
   const location = useLocation();
   let dataRecipe = [];
   let ingredients = [];
@@ -123,7 +127,6 @@ export default function RecipeDetailsDrink() {
   return (
     <div className="recipe-details">
       <ReturnButton location="/drinks" />
-      <h1>RecipeDetails</h1>
       {dataRecipe.length > 0 && (
         <div>
           {!isLoading && (
@@ -184,6 +187,7 @@ export default function RecipeDetailsDrink() {
                 className="imgRecomendation"
                 src={ ele.strMealThumb }
                 alt={ ele.strMeal }
+                onClick={ () => history.push(`/meals/${ele.idMeal}`) }
               />
               <p data-testid={ `${ind}-recommendation-title` }>{ele.strMeal}</p>
             </div>

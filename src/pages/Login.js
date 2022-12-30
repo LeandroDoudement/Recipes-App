@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import '../styles/Login.css';
 import recipesLogo from '../images/recipesLogo.png';
-import tomate from '../images/tomate.png';
 
 function Login() {
   const [formEmail, setFormEmail] = useState('');
@@ -23,19 +22,18 @@ function Login() {
   return (
     <div className="login-form">
       <img className="recipes_logo" src={ recipesLogo } alt="Logo" />
-      <img src={ tomate } alt="tomate" className="login_image" />
       <div className="formLogin">
-        <h1>Login</h1>
+        <span className="login-title">Login</span>
         <input
           type="email"
           data-testid="email-input"
-          placeholder="Email..."
+          placeholder="Email"
           onChange={ (event) => setFormEmail(event.target.value) }
         />
         <input
           type="password"
           data-testid="password-input"
-          placeholder="Password..."
+          placeholder="Password"
           onChange={ (event) => setPassword(event.target.value) }
         />
         <Link to="/meals" className="login_button">

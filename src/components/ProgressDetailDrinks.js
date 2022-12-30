@@ -142,7 +142,6 @@ export default function ProgressDetailsDrinks() {
   }
 
   const saveRecipe = () => {
-    // const dateDone = new Date();
     let getDoneRecipes = localStorage
       .getItem('doneRecipes') ? JSON
         .parse(localStorage.getItem('doneRecipes')) : [];
@@ -155,7 +154,6 @@ export default function ProgressDetailsDrinks() {
       name: dataProgress[0].strDrink,
       image: dataProgress[0].strDrinkThumb,
       doneDate: new Date().toISOString(),
-      // doneDate: `${dateDone.getDate()}/${dateDone.getMonth()}/${dateDone.getFullYear()}`,
       tags: [],
     };
     getDoneRecipes = [...getDoneRecipes, newDone];
@@ -166,7 +164,6 @@ export default function ProgressDetailsDrinks() {
   return (
     <div className="recipe-details">
       <ReturnButton location={ location.pathname.slice(0, TREZE) } />
-      <h1>ProgressDrinks</h1>
       { (dataProgress.length > 0) && (
         <div>
           {(!isLoading) && (
@@ -235,7 +232,7 @@ export default function ProgressDetailsDrinks() {
           disabled={ !isDone }
           onClick={ saveRecipe }
         >
-          Recipe Finish
+          Finish Recipe
         </button>
       </Link>
     </div>
