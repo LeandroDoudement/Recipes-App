@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import fetchData from '../services/fetchRecipes';
@@ -168,7 +169,13 @@ export default function ProgressDetailsDrinks() {
         <div>
           {(!isLoading) && (
             <>
-              <h2 data-testid="recipe-title">{ dataProgress[0].strDrink }</h2>
+              <h2
+                data-testid="recipe-title"
+                className="recipe-title"
+              >
+                { dataProgress[0].strDrink }
+
+              </h2>
               <img
                 data-testid="recipe-photo"
                 src={ dataProgress[0].strDrinkThumb }
@@ -176,7 +183,7 @@ export default function ProgressDetailsDrinks() {
                 height="150px"
               />
               <h2 data-testid="recipe-category">
-                { `${dataProgress[0].strCategory} - ${dataProgress[0].strAlcoholic}` }
+                { `Category: ${dataProgress[0].strCategory} - ${dataProgress[0].strAlcoholic}` }
               </h2>
             </>
           )}
@@ -184,6 +191,7 @@ export default function ProgressDetailsDrinks() {
           <ol>
             {ingredients.map((ing, index) => (
               <div className="itens-list" key={ index }>
+                <h2>Ingredients</h2>
                 <label
                   data-testid={ `${index}-ingredient-step` }
                   htmlFor={ ing }

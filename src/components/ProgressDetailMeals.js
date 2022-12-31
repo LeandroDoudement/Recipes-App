@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import fetchData from '../services/fetchRecipes';
@@ -144,7 +145,6 @@ export default function ProgressDetailsMeals() {
 
   const saveRecipe = () => {
     const tags = dataProgress[0].strTags.split(',');
-    // const dateDone = new Date().toISOString();
     let getDoneRecipes = localStorage
       .getItem('doneRecipes') ? JSON
         .parse(localStorage.getItem('doneRecipes')) : [];
@@ -157,7 +157,6 @@ export default function ProgressDetailsMeals() {
       name: dataProgress[0].strMeal,
       image: dataProgress[0].strMealThumb,
       doneDate: new Date().toISOString(),
-      // doneDate: `${dateDone.getDate()}/${dateDone.getMonth()}/${dateDone.getFullYear()}`,
       tags,
     };
     getDoneRecipes = [...getDoneRecipes, newDone];
@@ -173,19 +172,31 @@ export default function ProgressDetailsMeals() {
         <div>
           {(!isLoading) && (
             <>
-              <h2 data-testid="recipe-title">{dataProgress[0].strMeal}</h2>
+              <h2
+                data-testid="recipe-title"
+                className="recipe-title"
+              >
+                {dataProgress[0].strMeal}
+
+              </h2>
               <img
                 data-testid="recipe-photo"
                 src={ dataProgress[0].strMealThumb }
                 alt={ dataProgress[0].idMeal }
                 height="150px"
               />
-              <h2 data-testid="recipe-category">{dataProgress[0].strCategory}</h2>
+              <h2
+                data-testid="recipe-category"
+              >
+                {`Category: ${dataProgress[0].strCategory}`}
+
+              </h2>
             </>
           )}
 
           <ol>
             <div className="all-itens">
+              <h2>Ingredients</h2>
               {ingredients.map((ing, index) => (
                 <div className="itens-list" key={ index }>
                   <label

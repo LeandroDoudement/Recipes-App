@@ -122,24 +122,40 @@ export default function RecipeDetailsMeal() {
         <div>
           {(!isLoading) && (
             <>
-              <h2 data-testid="recipe-title">{ dataRecipe[0].strMeal }</h2>
+              <h2
+                data-testid="recipe-title"
+                className="recipe-title"
+              >
+                { dataRecipe[0].strMeal }
+
+              </h2>
               <img
                 data-testid="recipe-photo"
                 src={ dataRecipe[0].strMealThumb }
                 alt={ dataRecipe[0].idMeal }
                 height="150px"
               />
-              <h2 data-testid="recipe-category">{ dataRecipe[0].strCategory }</h2>
+              <h2
+                data-testid="recipe-category"
+              >
+                { `Category: ${dataRecipe[0].strCategory}` }
+
+              </h2>
             </>
           )}
-
           <ol>
+            <h2>
+              Ingredients:
+
+            </h2>
             {ingredients.map((ing, index) => (
               <li key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
                 {ing}
               </li>
             ))}
           </ol>
+          <h2>Instructions:</h2>
+
           <p data-testid="instructions">{ dataRecipe[0].strInstructions }</p>
           <iframe title="video" data-testid="video" src={ a } />
         </div>

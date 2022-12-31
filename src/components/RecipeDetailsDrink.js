@@ -131,7 +131,13 @@ export default function RecipeDetailsDrink() {
         <div>
           {!isLoading && (
             <>
-              <h2 data-testid="recipe-title">{dataRecipe[0].strDrink}</h2>
+              <h2
+                data-testid="recipe-title"
+                className="recipe-title"
+              >
+                {dataRecipe[0].strDrink}
+
+              </h2>
               <img
                 data-testid="recipe-photo"
                 src={ dataRecipe[0].strDrinkThumb }
@@ -139,12 +145,16 @@ export default function RecipeDetailsDrink() {
                 height="150px"
               />
               <h2 data-testid="recipe-category">
-                {`${dataRecipe[0].strCategory} - ${dataRecipe[0].strAlcoholic}`}
+                {`Category: ${dataRecipe[0].strCategory} - ${dataRecipe[0].strAlcoholic}`}
               </h2>
             </>
           )}
 
           <ol>
+            <h2>
+              Ingredients:
+
+            </h2>
             {ingredients.map((ing, index) => (
               <li
                 key={ index }
@@ -154,6 +164,7 @@ export default function RecipeDetailsDrink() {
               </li>
             ))}
           </ol>
+          <h2>Instructions:</h2>
           <p data-testid="instructions">{dataRecipe[0].strInstructions}</p>
         </div>
       )}

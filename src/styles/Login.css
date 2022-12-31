@@ -49,6 +49,10 @@
   padding-left: 5px;
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
 .formLogin button {
   background: #fcc436;
   border-radius: 5px;
